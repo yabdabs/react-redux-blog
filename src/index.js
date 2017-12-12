@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import reducers from './reducers';
 import PostsIndex from './components/posts_index.js'
 import PostsNew from './components/posts_new.js'
+import PostShow from './components/posts_show.js'
 
 //we need this because of ascync nature of axios call. It returns a promise and this middleware handles that promise for us
 import promise from 'redux-promise'
@@ -27,6 +28,7 @@ ReactDOM.render(
 	    	<Switch>
 	    	  {/*We put the most specific route at the top of this */}	
 	    		<Route path='/posts/new' component={PostsNew} />
+          <Route path= '/posts/:id' component={PostShow} />
 	    		<Route path='/' component={PostsIndex} />
 	    	</Switch>
     	</div>

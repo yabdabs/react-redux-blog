@@ -55,8 +55,17 @@ class PostsNew extends Component{
 		//this === component
 		console.log(values)
 
+		//create the post first
+		//the redirect to the homepage
 		//call the createPost action creator
-		this.props.createPost(values)
+
+		//call the createPost action creator once user submits, and form is validated
+		//we have to use arrow function so that this refers to this component
+		//when you use regular function, this will lose context, because it is inside a callback
+		this.props.createPost(values, () => {
+			//this.props.history is sent to components when react renders
+			this.props.history.push('/')
+		})
 	}
 
 	render(){
